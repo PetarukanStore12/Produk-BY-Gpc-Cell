@@ -152,6 +152,44 @@ body {
   position: relative;
   text-align: center;
 }
+  /* Biar teks deskripsi rapi */
+#modalDeskripsi {
+  text-align: justify;
+  line-height: 1.6;
+  margin: 10px 0;
+  font-size: 15px;
+  color: #333;
+  word-spacing: 1px;
+}
+
+/* Responsif modal di berbagai ukuran layar */
+@media (min-width: 400px) {
+  .modal-content {
+    max-width: 360px;
+  }
+}
+
+@media (min-width: 600px) {
+  .modal-content {
+    max-width: 480px;
+  }
+}
+
+@media (min-width: 900px) {
+  .modal-content {
+    max-width: 600px;
+  }
+}
+
+/* Animasi muncul lembut */
+.modal-content {
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 .modal-content img {
   width: 140px; /* kecilin gambar */
   height: 140px;
