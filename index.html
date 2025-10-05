@@ -71,23 +71,24 @@ body {
   border-radius: 8px;
   border: 1px solid #ccc;
 }
-  /* TEKS BERJALAN */
+  /* === TEKS BERJALAN === */
 .running-text {
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  box-sizing: border-box;
   text-align: center;
-  margin: 5px 0 10px 0; /* biar pas jaraknya */
-  font-weight: 600;
-  font-size: 16px;
+  margin: 10px 0 5px 0; /* lebih pas jaraknya */
+  font-family: 'Poppins', sans-serif; /* font elegan */
+  font-weight: 400; /* tidak terlalu tebal */
+  font-size: 15px;
   color: #333;
+  letter-spacing: 0.3px;
 }
 
 .running-text span {
   display: inline-block;
   padding-left: 100%;
-  animation: marquee 19s linear infinite;
+  animation: marquee 15s linear infinite;
 }
 
 @keyframes marquee {
