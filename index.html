@@ -71,6 +71,30 @@ body {
   border-radius: 8px;
   border: 1px solid #ccc;
 }
+  /* TEKS BERJALAN */
+.running-text {
+  width: 100%;
+  background: none;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  padding: 6px 0;
+  font-size: 15px;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.running-text span {
+  display: inline-block;
+  animation: marquee 12s linear infinite;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
 
 /* GRID PRODUK */
 .produk-grid {
@@ -262,6 +286,10 @@ body {
   </div>
   <input type="text" id="searchBox" class="search-box" placeholder="Cari produk...">
 </div>
+  <!-- TEKS BERJALAN -->
+<div class="running-text">
+  <span id="greetingText"></span>
+</div>
 
 <div class="produk-grid" id="produkGrid"></div>
 
@@ -391,6 +419,17 @@ detailModal.addEventListener("click", (e) => {
     tutupModal();
   }
 });
+  // === TEKS BERJALAN OTOMATIS SESUAI WAKTU ===
+function getGreeting() {
+  const now = new Date();
+  const hour = now.getHours();
+  if (hour < 12) return "Selamat Pagi 🌤";
+  if (hour < 18) return "Selamat Siang 🌞";
+  return "Selamat Malam 🌙";
+}
+
+const greetingText = document.getElementById("greetingText");
+greetingText.textContent = `${getGreeting()} — Silahkan pilih kuota di bawah ya kak ☺`;
 </script>
 <footer class="footer">
   <p>© 2025 <strong>Petarukan Store</strong> • All Rights Reserved</p>
