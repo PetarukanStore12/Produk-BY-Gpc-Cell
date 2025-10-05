@@ -78,12 +78,15 @@ body {
   overflow: hidden;
   white-space: nowrap;
   box-sizing: border-box;
-  padding: 6px 0;
+  padding: 8px 0;
   font-size: 15px;
   color: #333;
   font-weight: 500;
   text-align: center;
-  margin-bottom: 10px;
+  margin: 15px auto;     /* kasih jarak atas-bawah & center otomatis */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .running-text span {
@@ -423,13 +426,14 @@ detailModal.addEventListener("click", (e) => {
 function getGreeting() {
   const now = new Date();
   const hour = now.getHours();
-  if (hour < 12) return "Selamat Pagi 🌤";
-  if (hour < 18) return "Selamat Siang 🌞";
+  if (hour < 12) return "Selamat Pagi ⛅";
+  if (hour < 15) return "Selamat Siang ☀";
+  if (hour < 18) return "Selamat Sore 🌞";
   return "Selamat Malam 🌙";
 }
 
 const greetingText = document.getElementById("greetingText");
-greetingText.textContent = `${getGreeting()} — Silahkan pilih kuota di bawah ya kak ☺`;
+greetingText.textContent = `${getGreeting()} Silahkan Pilih Produk kuota di bawah ini ya kak 😊 Untuk Produk kami selalu update tiap hari ya 🥳`;
 </script>
 <footer class="footer">
   <p>© 2025 <strong>Petarukan Store</strong> • All Rights Reserved</p>
