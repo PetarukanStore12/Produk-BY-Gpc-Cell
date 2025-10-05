@@ -73,23 +73,30 @@ body {
 }
   /* TEKS BERJALAN */
 .running-text {
+  width: 100%;
   overflow: hidden;
   white-space: nowrap;
   box-sizing: border-box;
-  position: relative;
+  text-align: center;
+  margin: 5px 0 10px 0; /* biar pas jaraknya */
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
 }
 
 .running-text span {
   display: inline-block;
-  position: absolute;
-  left: 0;                  /* langsung muncul dari awal */
-  animation: marquee 18s linear infinite;
-  animation-delay: 0s;      /* tanpa jeda */
+  padding-left: 100%;
+  animation: marquee 19s linear infinite;
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0%); }       /* mulai langsung dari posisi terlihat */
-  100% { transform: translateX(-100%); }  /* jalan ke kiri */
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 /* GRID PRODUK */
 .produk-grid {
