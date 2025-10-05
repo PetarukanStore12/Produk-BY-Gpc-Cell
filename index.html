@@ -370,7 +370,7 @@ function tutupModal() {
 
 function kirimWA(p) {
   const nomorWA = "6285643838017";
-  const pesan = `Halo, saya tertarik dengan produk:\n\n${p.nama}\n${p.deskripsi}\nHarga: Rp ${p.harga.toLocaleString('id-ID')}\nStok: ${p.stok > 0 ? p.stok : 'Habis'}`;
+  const pesan = `Halo Kak, Saya Mau Order Dengan Produk:\n\n${p.nama}\n${p.deskripsi}\nHarga: Rp ${p.harga.toLocaleString('id-ID')}\nStok: ${p.stok > 0 ? p.stok : 'Habis'}`;
   window.open(`https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`, "_blank");
 }
 
