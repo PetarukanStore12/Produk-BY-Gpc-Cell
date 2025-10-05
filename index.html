@@ -93,8 +93,9 @@ body {
 .running-text span {
   display: inline-block;
   animation: marquee 18s linear infinite;
-  animation-delay: 0s;      /* teks langsung mulai jalan */
-  transform: translateX(100%); /* mulai dari sisi kanan langsung */
+  animation-delay: 0s;
+  transform: translateX(100%);
+  animation-timing-function: ease-in-out; /* lebih lembut di awal & akhir */
 }
 
 @keyframes marquee {
