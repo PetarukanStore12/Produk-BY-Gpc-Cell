@@ -52,7 +52,7 @@
       overflow: hidden;
       white-space: nowrap;
       text-align: center;
-      margin: 0 auto 10px;
+      margin: 10px auto 5px;
       color: #222;
       font-size: 15px;
       font-weight: 500;
@@ -61,7 +61,7 @@
 
     .greeting-text {
       display: inline-block;
-      animation: scrollText 12s linear infinite;
+      animation: scrollText 15s linear infinite;
     }
 
     @keyframes scrollText {
@@ -84,19 +84,16 @@
       overflow: hidden;
       transition: 0.3s;
       text-align: center;
+      position: relative;
     }
 
     .card:hover {
       transform: translateY(-3px);
     }
 
-    .card-image {
-      position: relative;
-    }
-
     .stok-label {
       position: absolute;
-      top: 10px;
+      top: 8px;
       left: 50%;
       transform: translateX(-50%);
       padding: 5px 12px;
@@ -277,12 +274,10 @@
         const card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `
-          <div class="card-image">
-            <span class="stok-label ${p.stok > 0 ? 'stok-ready' : 'stok-habis'}">
-              ${p.stok > 0 ? 'STATUS: READY' : 'STATUS: HABIS'}
-            </span>
-            <img src="${p.gambar}" alt="${p.nama}">
-          </div>
+          <span class="stok-label ${p.stok > 0 ? 'stok-ready' : 'stok-habis'}">
+            ${p.stok > 0 ? 'STATUS: READY' : 'STATUS: HABIS'}
+          </span>
+          <img src="${p.gambar}" alt="${p.nama}">
           <div class="card-content">
             <h3>${p.nama}</h3>
             <p>${p.deskripsi}</p>
@@ -293,7 +288,6 @@
           </div>
         `;
 
-        // tombol
         card.querySelector(".btn-detail").addEventListener("click", () => bukaModal(p));
         if (p.stok > 0) card.querySelector(".btn-order").addEventListener("click", () => kirimWA(p));
 
