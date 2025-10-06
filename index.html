@@ -12,26 +12,21 @@
       padding: 0;
     }
 
+    /* Header */
     .header {
       background: white;
       padding: 10px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-
     .store-info {
-      display: flex;
-      flex-direction: column;
       margin-left: 10px;
     }
-
     .store-name {
-      font-weight: bold;
       font-size: 20px;
+      font-weight: bold;
     }
-
     .store-sub {
       font-size: 14px;
       color: gray;
@@ -44,32 +39,38 @@
       padding: 10px;
       border-radius: 10px;
       border: 1px solid #ccc;
-      font-size: 16px;
     }
 
-    /* ==== TEKS BERJALAN ==== */
+    /* Teks berjalan */
     .greeting-bar {
       overflow: hidden;
       white-space: nowrap;
-      text-align: center;
-      margin: 10px auto 5px;
-      color: #222;
+      margin: 8px auto 5px;
+      color: #444;
       font-size: 15px;
-      font-weight: 500;
-      font-family: "Poppins", sans-serif;
+      font-weight: normal;
+      text-align: center;
     }
-
     .greeting-text {
       display: inline-block;
-      animation: scrollText 15s linear infinite;
+      animation: scrollText 25s linear infinite;
     }
-
     @keyframes scrollText {
       from { transform: translateX(100%); }
       to { transform: translateX(-100%); }
     }
 
-    /* ==== PRODUK CARD ==== */
+    /* Tombol kategori */
+    h3 {
+      background: #1565c0;
+      color: white;
+      margin: 10px 15px;
+      padding: 10px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    /* Produk grid */
     .produk-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -80,38 +81,28 @@
     .card {
       background: white;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       overflow: hidden;
-      transition: 0.3s;
       text-align: center;
       position: relative;
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-    }
-
+    /* Label status */
     .stok-label {
       position: absolute;
-      top: 8px;
+      top: 10px;
       left: 50%;
       transform: translateX(-50%);
-      padding: 5px 12px;
+      padding: 4px 12px;
       border-radius: 20px;
+      color: white;
       font-size: 12px;
       font-weight: 600;
       text-transform: uppercase;
-      color: #fff;
       z-index: 2;
     }
-
-    .stok-ready {
-      background-color: #4CAF50;
-    }
-
-    .stok-habis {
-      background-color: #e53935;
-    }
+    .stok-ready { background: #4CAF50; }
+    .stok-habis { background: #e53935; }
 
     .card img {
       width: 100%;
@@ -131,56 +122,24 @@
     }
 
     .btn {
-      padding: 8px 15px;
+      padding: 8px 14px;
       border: none;
       border-radius: 8px;
-      cursor: pointer;
       font-size: 13px;
+      cursor: pointer;
       transition: 0.3s;
     }
 
-    .btn-detail {
-      background: #1565c0;
-      color: white;
-    }
+    .btn-detail { background: #1565c0; color: white; }
+    .btn-order { background: #d32f2f; color: white; }
+    .btn:disabled { background: #ccc; color: #666; cursor: not-allowed; }
 
-    .btn-order {
-      background: #d32f2f;
-      color: white;
-    }
-
-    .btn:disabled {
-      background: #ccc;
-      color: #666;
-      cursor: not-allowed;
-    }
-
-    /* ==== FOOTER ==== */
-    .footer {
-      margin-top: 40px;
-      text-align: center;
-      background: none;
-      color: #555;
-      padding: 10px 0;
-      font-size: 13px;
-    }
-
-    .footer a {
-      color: #555;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* ==== MODAL ==== */
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
       justify-content: center;
       align-items: center;
       padding: 20px;
@@ -190,11 +149,18 @@
       background: white;
       border-radius: 10px;
       padding: 15px;
-      max-width: 300px;
+      max-width: 280px;
       width: 100%;
       text-align: center;
-      position: relative;
       animation: zoomIn 0.3s ease;
+      position: relative;
+    }
+
+    .modal-content img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
     }
 
     @keyframes zoomIn {
@@ -206,16 +172,23 @@
       position: absolute;
       top: 5px;
       right: 10px;
-      background: none;
       border: none;
+      background: none;
       font-size: 20px;
       cursor: pointer;
     }
 
+    /* Footer abu-abu */
+    .footer {
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+      padding: 15px 0;
+      margin-top: 30px;
+    }
   </style>
 </head>
 <body>
-
   <div class="header">
     <img src="Logo.png" alt="Logo" width="50">
     <div class="store-info">
@@ -230,30 +203,26 @@
     <div class="greeting-text" id="greetingText"></div>
   </div>
 
-  <h3 style="text-align:center; background:#1565c0; color:white; margin:0 10px; padding:10px; border-radius:20px;">
-    PRODUK PAKET AKRAB L
-  </h3>
+  <h3>PRODUK PAKET AKRAB L</h3>
 
   <div class="produk-grid" id="produkGrid"></div>
 
-  <!-- MODAL -->
   <div class="modal" id="detailModal">
     <div class="modal-content">
       <button class="close-btn" onclick="tutupModal()">×</button>
-      <img id="modalImg" src="" alt="" style="width:140px;height:140px;object-fit:cover;border-radius:8px;">
+      <img id="modalImg" src="" alt="">
       <h3 id="modalNama"></h3>
       <p id="modalDeskripsi"></p>
-      <p id="modalHarga" style="font-weight:bold;"></p>
+      <p id="modalHarga" style="font-weight: bold;"></p>
     </div>
   </div>
 
   <footer class="footer">
-    <p>© 2025 <strong>Petarukan Store</strong> • All Rights Reserved</p>
-    <p>Design & Build by <a href="#">Gpc Cell</a></p>
+    © 2025 Petarukan Store • All Rights Reserved <br>
+    Design & Build by Gpc Cell
   </footer>
 
   <script>
-    // === DATA PRODUK ===
     const produkList = [
       { nama: "Akrab L Basic", deskripsi: "Paket ini bisa buat XL & Axis || Cek Area : Area 1 = 15 GB • Area 2 = 17 GB • Area 3 = 22 GB • Area 4 = 32 GB", harga: 43000, stok: 0, gambar: "Gambar/Produk1.png" },
       { nama: "Akrab L Biasa", deskripsi: "Paket ini bisa buat XL & Axis || Cek Area : Area 1 = 38 - 40 GB • Area 2 = 40 - 42 GB • Area 3 = 45 - 47 GB • Area 4 = 55 - 57 GB", harga: 60000, stok: 5, gambar: "Gambar/Produk2.png" },
@@ -287,10 +256,8 @@
             <button class="btn btn-order" ${p.stok === 0 ? 'disabled' : ''}>KLIK ORDER</button>
           </div>
         `;
-
         card.querySelector(".btn-detail").addEventListener("click", () => bukaModal(p));
         if (p.stok > 0) card.querySelector(".btn-order").addEventListener("click", () => kirimWA(p));
-
         produkGrid.appendChild(card);
       });
     }
@@ -302,17 +269,12 @@
       modalHarga.textContent = "Rp " + p.harga.toLocaleString();
       detailModal.style.display = "flex";
     }
-
-    function tutupModal() {
-      detailModal.style.display = "none";
-    }
-
+    function tutupModal() { detailModal.style.display = "none"; }
     function kirimWA(p) {
       const pesan = `Halo Kak, saya mau pesan ${p.nama} - Rp ${p.harga.toLocaleString()}`;
       window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(pesan)}`, "_blank");
     }
 
-    // === TEKS BERJALAN SESUAI WAKTU ===
     function getGreeting() {
       const hour = new Date().getHours();
       if (hour < 12) return "Selamat Pagi 🌤";
@@ -320,11 +282,8 @@
       if (hour < 19) return "Selamat Sore 🌇";
       return "Selamat Malam 🌙";
     }
-
     document.getElementById("greetingText").textContent = `${getGreeting()} Silahkan Pilih Produk kuota di bawah ya kak ☺`;
-
     renderProduk(produkList);
   </script>
-
 </body>
 </html>
