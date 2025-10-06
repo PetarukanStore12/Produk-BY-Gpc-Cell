@@ -1,447 +1,336 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Katalog Produk-01</title>
-<style>
-  .footer {
-  margin-top: 40px;
-  text-align: center;
-  background: none;
-  color: #555;
-  padding: 10px 0;
-  font-size: 13px;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Produk-01</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
 
-.footer a {
-  color: #555;
-  text-decoration: none;
-  font-weight: 600;
-}
+    .header {
+      background: white;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
 
-.footer a:hover {
-  text-decoration: underline;
-}
-body {
-  font-family: Arial, sans-serif;
-  background: #F4F4F4;
-  margin: 0;
-  padding: 0;
-}
+    .store-info {
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+    }
 
-/* HEADER */
-.header {
-  background: white;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-.logo {
-  width: 48px;
-  height: 48px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.store-info {
-  display: flex;
-  flex-direction: column;
-}
-.store-name {
-  font-size: 20px;
-  font-weight: bold;
-}
-.store-sub {
-  font-size: 12px;
-  color: #555;
-}
-.search-box {
-  width: 90%;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-  /* === TEKS BERJALAN === */
-.running-text {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-align: center;
-  margin: 10px 0 5px 0; /* lebih pas jaraknya */
-  font-family: 'Poppins', sans-serif; /* font elegan */
-  font-weight: 400; /* tidak terlalu tebal */
-  font-size: 15px;
-  color: #333;
-  letter-spacing: 0.3px;
-}
+    .store-name {
+      font-weight: bold;
+      font-size: 20px;
+    }
 
-.running-text span {
-  display: inline-block;
-  padding-left: 100%;
-  animation: marquee 15s linear infinite;
-}
+    .store-sub {
+      font-size: 14px;
+      color: gray;
+    }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-/* GRID PRODUK */
-.produk-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  padding: 12px;
-}
-.card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  position: relative;
-}
-.card img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-}
-.stok-label {
-  position: absolute;
-  top: 12px;
-  left: 8px;
-  padding: 5px 10px;
-  border-radius: 20px;
-  color: white;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  background-color: #4CAF50; /* warna default */
-  z-index: 2;
-}
-.stok-habis { background: #e53935; }
-.stok-ready { background: #43a047; }
-.card-content {
-  padding: 8px;
-}
-.card-content h3 {
-  font-size: 14px;
-  margin: 0;
-}
-.card-content p {
-  font-size: 11px;
-  color: #666;
-  margin: 4px 0;
-}
-.card-buttons {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px;
-  gap: 5px;
-}
-.btn {
-  flex: 1;
-  padding: 6px 0;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-}
-.btn-detail { background: #1508DA; color: #F7F7F7; }
-.btn-order { background: #d32f2f; color: white; }
+    .search-box {
+      width: 90%;
+      margin: 10px auto;
+      display: block;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
 
-/* MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-.modal-content {
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-  max-width: 280px; /* lebih kecil biar rapi di HP */
-  width: 100%;
-  position: relative;
-  text-align: center;
-}
-  /* Biar teks deskripsi rapi */
-#modalDeskripsi {
-  text-align: justify;
-  line-height: 1.6;
-  margin: 10px 0;
-  font-size: 15px;
-  color: #333;
-  word-spacing: 1px;
-}
+    /* ==== TEKS BERJALAN ==== */
+    .greeting-bar {
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: center;
+      margin: 0 auto 10px;
+      color: #222;
+      font-size: 15px;
+      font-weight: 500;
+      font-family: "Poppins", sans-serif;
+    }
 
-/* Responsif modal di berbagai ukuran layar */
-@media (min-width: 400px) {
-  .modal-content {
-    max-width: 360px;
-  }
-}
+    .greeting-text {
+      display: inline-block;
+      animation: scrollText 12s linear infinite;
+    }
 
-@media (min-width: 600px) {
-  .modal-content {
-    max-width: 480px;
-  }
-}
+    @keyframes scrollText {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
 
-@media (min-width: 900px) {
-  .modal-content {
-    max-width: 600px;
-  }
-}
+    /* ==== PRODUK CARD ==== */
+    .produk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+      padding: 15px;
+    }
 
-/* Animasi muncul lembut */
-.modal-content {
-  animation: zoomIn 0.3s ease;
-}
-.modal-content h3 {
-  margin-top: 10px;
-  margin-bottom: 8px;
-}
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: 0.3s;
+      text-align: center;
+    }
 
-.modal-content p {
-  margin: 5px 0;
-}
-@keyframes zoomIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-.modal-content img {
-  width: 140px; /* kecilin gambar */
-  height: 140px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
+    .card:hover {
+      transform: translateY(-3px);
+    }
 
-.close-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: #ccc;
-  border: none;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-.btn:disabled {
-  background: #ccc !important;
-  color: #777 !important;
-  cursor: not-allowed;
-}
-.search-box:focus {
-  outline: none;
-  border-color: #1565c0; /* warna biru misalnya */
-  box-shadow: none; /* hilangkan glow orange */
-}
-.no-result {
-  grid-column: span 2;
-  text-align: center;
-  font-size: 14px;
-  color: #777;
-  padding: 15px 0;
-}
-.kategori-title {
-  width: 70%;
-  grid-column: span 2;
-  text-align: center;
-  background: #0035FF;
-  color: #FFFFFF;
-  font-weight: bold;
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin: 15px auto 10px;
-  /* ini bikin dia center */
-  font-size: 13px;
-}
-</style>
+    .card-image {
+      position: relative;
+    }
+
+    .stok-label {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #fff;
+      z-index: 2;
+    }
+
+    .stok-ready {
+      background-color: #4CAF50;
+    }
+
+    .stok-habis {
+      background-color: #e53935;
+    }
+
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 10px;
+    }
+
+    .card-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .btn {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: 0.3s;
+    }
+
+    .btn-detail {
+      background: #1565c0;
+      color: white;
+    }
+
+    .btn-order {
+      background: #d32f2f;
+      color: white;
+    }
+
+    .btn:disabled {
+      background: #ccc;
+      color: #666;
+      cursor: not-allowed;
+    }
+
+    /* ==== FOOTER ==== */
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      background: none;
+      color: #555;
+      padding: 10px 0;
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: #555;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ==== MODAL ==== */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      max-width: 300px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+  </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="brand">
-    <div class="logo">
-      <img src="Logo.png" alt="Logo">
-    </div>
+  <div class="header">
+    <img src="Logo.png" alt="Logo" width="50">
     <div class="store-info">
       <div class="store-name">PETARUKAN STORE</div>
       <div class="store-sub">Jl.Raya Petarukan Pemalang</div>
     </div>
   </div>
+
   <input type="text" id="searchBox" class="search-box" placeholder="Cari produk...">
-</div>
-  <!-- TEKS BERJALAN -->
-<div class="running-text">
-  <span id="greetingText"></span>
-</div>
 
-<div class="produk-grid" id="produkGrid"></div>
-
-<!-- MODAL -->
-<div class="modal" id="detailModal">
-  <div class="modal-content">
-    <button class="close-btn" onclick="tutupModal()">×</button>
-    <img id="modalImg" src="" alt="">
-    <h3 id="modalNama"></h3>
-    <p id="modalDeskripsi"></p>
-    <p><strong id="modalHarga"></strong></p>
+  <div class="greeting-bar">
+    <div class="greeting-text" id="greetingText"></div>
   </div>
-</div>
 
-<script>
-const produkList = [
-  { nama: "Akrab L Basic", kategori: "PAKET AKRAB L", deskripsi: "Paket ini bisa buat XL & Axis Cek Area : • Area 1 = 15 GB • Area 2 = 17 GB • Area 3 = 22 GB • Area 4 = 32 GB", harga: 43000, stok: 1, gambar: "Gambar/Produk1.png" },
-  { nama: "Akrab L Biasa", kategori: "PAKET AKRAB L", deskripsi: "Paket ini bisa buat XL & Axis || Cek Area : Area 1 = 38 - 40 GB | Area 2 = 40 - 42 GB | Area 3 = 45 - 47 GB | Area 4 = 55 - 57 GB", harga: 60000, stok: 1, gambar: "Gambar/Produk2.png" },
-  { nama: "Akrab Mega L", kategori: "PAKET AKRAB L", deskripsi: "Paket ini bisa buat XL & Axis || Cek Area : Area 1 = 63 - 65 GB | Area 2 = 65 - 67 GB | Area 3 = 70 - 72 GB | Area 4 = 80 - 82 GB", harga: 79000, stok: 0, gambar: "Gambar/Produk3.png" },
-  { nama: "Akrab Super L", kategori: "PAKET AKRAB L", deskripsi: "Paket ini bisa buat XL & Axis || Cek Area : Area 1 = 88 - 90 GB | Area 2 = 90 - 92 GB | Area 3 = 95 - 97 GB | Area 4 = 105 - 107 GB", harga: 90000, stok: 0, gambar: "Gambar/Produk4.png" },
-  { nama: "XXL MINI", kategori: "PAKET AKRAB XXL", deskripsi: "Paket ini bisa untuk XL & AXIS || Cek Area : Area 1 = 27 GB || Area 2 = 32 GB || Area 3 = 45 GB || Area 4 = 85 GB|| Masa Aktif 30 Hari", harga: 70000, stok: 0, gambar: "Gambar/Produk5.png" },
-  { nama: "XXL LITE", kategori: "PAKET AKRAB XXL", deskripsi: "Paket ini bisa untuk XL & AXIS || Cek Area : Area 1 = 47,5 GB || Area 2 = 52 GB || Area 3 = 60,5 GB || Area 4 = 105 GB|| Masa Aktif 30 Hari", harga: 82000, stok: 1, gambar: "Gambar/Produk6.png" },
-  { nama: "XXL JUMBO REWARD", kategori: "PAKET AKRAB XXL", deskripsi: "Paket ini bisa untuk XL & AXIS || Cek Area : Area 1 = 65,5 - 67,5 GB || Area 2 = 70 - 72 GB || Area 3 = 83 - 85 GB || Area 4 = 123 - 125 GB|| Masa Aktif 30 Hari", harga: 87000, stok: 0, gambar: "Gambar/Produk7.png" },
-  { nama: "XXL JUMBO SUPER", kategori: "PAKET AKRAB XXL", deskripsi: "Paket ini bisa untuk XL & AXIS || Cek Area : Area 1 = 85,5 - 87,5 GB || Area 2 = 90 - 92 GB || Area 3 = 103 - 105 GB || Area 4 = 143 - 145 GB|| Masa Aktif 30 Hari", harga: 93000, stok: 0, gambar: "Gambar/Produk8.png" },
-  { nama: "Bekasan L 10 Hari", kategori: "PAKET BEKASAN AKRAB", deskripsi: "Cek Area : Area 1 = 8 GB || Area 2 = 10 GB || Area 3 = 15 GB || Area 4 = 25 GB", harga: 15000, stok: 0, gambar: "Gambar/Produk1-Bekasan-L.png" },
-  { nama: "Bekasan L 12 Hari", kategori: "PAKET BEKASAN AKRAB", deskripsi: "Cek Area : Area 1 = 8 GB || Area 2 = 10 GB || Area 3 = 15 GB || Area 4 = 25 GB", harga: 17000, stok: 0, gambar: "Gambar/Produk2-Bekasan-L.png" },
-  { nama: "Bekasan XL 13 Hari", kategori: "PAKET BEKASAN AKRAB", deskripsi: "Cek Area : Area 1 = 1,5 GB || Area 2 = 4,5 GB || Area 3 = 15 GB || Area 4 = 39 GB", harga: 20000, stok: 0, gambar: "Gambar/Produk3-Bekasan-L.png" },
-  { nama: "Bekasan XL 16 Hari", kategori: "PAKET BEKASAN AKRAB", deskripsi: "Cek Area : Area 1 = 1,5 GB || Area 2 = 4,5 GB || Area 3 = 15 GB || Area 4 = 39 GB", harga: 25000, stok: 0, gambar: "Gambar/Produk4-Bekasan-L.png" },
-  { nama: "Bekasan XL 15 Hari", kategori: "PAKET BEKASAN AKRAB", deskripsi: "Cek Area : Area 1 = 1,5 GB || Area 2 = 4,5 GB || Area 3 = 15 GB || Area 4 = 39 GB", harga: 23000, stok: 0, gambar: "Gambar/Produk5-Bekasan-L.png" },
-  { nama: "Bekasan XXL 16 Hari", kategori: "PAKET BEKASAN AKRAB", deskripsi: "Cek Area : Area 1 = 7,5 GB || Area 2 = 12 GB || Area 3 = 25 GB || Area 4 = 65 GB", harga: 27000, stok: 0, gambar: "Gambar/Produk6-Bekasan-L.png" },
-];
+  <h3 style="text-align:center; background:#1565c0; color:white; margin:0 10px; padding:10px; border-radius:20px;">
+    PRODUK PAKET AKRAB L
+  </h3>
 
-const produkGrid = document.getElementById("produkGrid");
-const searchBox = document.getElementById("searchBox");
-const detailModal = document.getElementById("detailModal");
-const modalImg = document.getElementById("modalImg");
-const modalNama = document.getElementById("modalNama");
-const modalDeskripsi = document.getElementById("modalDeskripsi");
-const modalHarga = document.getElementById("modalHarga");
+  <div class="produk-grid" id="produkGrid"></div>
 
-function renderProduk(list) {
-  produkGrid.innerHTML = "";
+  <!-- MODAL -->
+  <div class="modal" id="detailModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="tutupModal()">×</button>
+      <img id="modalImg" src="" alt="" style="width:140px;height:140px;object-fit:cover;border-radius:8px;">
+      <h3 id="modalNama"></h3>
+      <p id="modalDeskripsi"></p>
+      <p id="modalHarga" style="font-weight:bold;"></p>
+    </div>
+  </div>
 
-  if (list.length === 0) {
-    produkGrid.innerHTML = `<div class="no-result">Produk tidak ditemukan</div>`;
-    return;
-  }
+  <footer class="footer">
+    <p>© 2025 <strong>Petarukan Store</strong> • All Rights Reserved</p>
+    <p>Design & Build by <a href="#">Gpc Cell</a></p>
+  </footer>
 
-  // Ambil daftar kategori unik
-  const kategoriList = [...new Set(list.map(p => p.kategori))];
+  <script>
+    // === DATA PRODUK ===
+    const produkList = [
+      { nama: "Akrab L Basic", deskripsi: "Paket ini bisa buat XL & Axis || Cek Area : Area 1 = 15 GB • Area 2 = 17 GB • Area 3 = 22 GB • Area 4 = 32 GB", harga: 43000, stok: 0, gambar: "Gambar/Produk1.png" },
+      { nama: "Akrab L Biasa", deskripsi: "Paket ini bisa buat XL & Axis || Cek Area : Area 1 = 38 - 40 GB • Area 2 = 40 - 42 GB • Area 3 = 45 - 47 GB • Area 4 = 55 - 57 GB", harga: 60000, stok: 5, gambar: "Gambar/Produk2.png" },
+      { nama: "Akrab Mega L", deskripsi: "Area 1 = 63 - 65 GB • Area 2 = 65 - 67 GB • Area 3 = 70 - 72 GB • Area 4 = 80 - 82 GB", harga: 75000, stok: 0, gambar: "Gambar/Produk3.png" },
+      { nama: "Akrab Super L", deskripsi: "Area 1 = 88 - 90 GB • Area 2 = 90 - 92 GB • Area 3 = 95 - 97 GB • Area 4 = 105 - 107 GB", harga: 87000, stok: 0, gambar: "Gambar/Produk4.png" }
+    ];
 
-  kategoriList.forEach(kat => {
-    // Tambah judul kategori
-    const title = document.createElement("div");
-    title.className = "kategori-title";
-    title.textContent = `PRODUK ${kat.toUpperCase()}`;
-    produkGrid.appendChild(title);
+    const produkGrid = document.getElementById("produkGrid");
+    const detailModal = document.getElementById("detailModal");
+    const modalImg = document.getElementById("modalImg");
+    const modalNama = document.getElementById("modalNama");
+    const modalDeskripsi = document.getElementById("modalDeskripsi");
+    const modalHarga = document.getElementById("modalHarga");
 
-    // Filter produk di kategori ini
-    const produkPerKategori = list.filter(p => p.kategori === kat);
+    function renderProduk(list) {
+      produkGrid.innerHTML = "";
+      list.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="card-image">
+            <span class="stok-label ${p.stok > 0 ? 'stok-ready' : 'stok-habis'}">
+              ${p.stok > 0 ? 'STATUS: READY' : 'STATUS: HABIS'}
+            </span>
+            <img src="${p.gambar}" alt="${p.nama}">
+          </div>
+          <div class="card-content">
+            <h3>${p.nama}</h3>
+            <p>${p.deskripsi}</p>
+          </div>
+          <div class="card-buttons">
+            <button class="btn btn-detail">DETAIL</button>
+            <button class="btn btn-order" ${p.stok === 0 ? 'disabled' : ''}>KLIK ORDER</button>
+          </div>
+        `;
 
-    produkPerKategori.forEach(p => {
-      const card = document.createElement("div");
-      card.classList.add("card");
-      card.innerHTML = `
-        <span class="stok-label ${p.stok > 0 ? 'stok-ready' : 'stok-habis'}">
-          ${p.stok > 0 ? 'STATUS: READY' : 'STATUS: HABIS'}
-        </span>
-        <img src="${p.gambar}" alt="${p.nama}">
-        <div class="card-content">
-          <h3>${p.nama}</h3>
-          <p>${p.deskripsi}</p>
-         </div>
-         <div class="card-buttons">
-  <!-- DETAIL selalu aktif -->
-      <button class="btn btn-detail">DETAIL</button>
-      
-  <!-- ORDER hanya aktif kalau stok > 0 -->
-      <button class="btn btn-order" ${p.stok === 0 ? 'disabled' : ''}>KLIK ORDER</button>
-         </div>
-`;
-      
-if (p.stok > 0) {
-  // tombol KLIK ORDER aktif cuma kalau stok ada
-  card.querySelector(".btn-order").addEventListener("click", () => kirimWA(p));
-}
-      
-// tombol DETAIL selalu aktif
-      card.querySelector(".btn-detail").addEventListener("click", () => bukaModal(p));
-      produkGrid.appendChild(card);
-    });
-  });
-}
+        // tombol
+        card.querySelector(".btn-detail").addEventListener("click", () => bukaModal(p));
+        if (p.stok > 0) card.querySelector(".btn-order").addEventListener("click", () => kirimWA(p));
 
-function bukaModal(p) {
-  modalImg.src = p.gambar;
-  modalNama.textContent = p.nama;
-  modalDeskripsi.textContent = p.deskripsi;
-  modalHarga.textContent = `Rp ${p.harga.toLocaleString('id-ID')}`;
-  detailModal.style.display = "flex";
-}
+        produkGrid.appendChild(card);
+      });
+    }
 
-function tutupModal() {
-  detailModal.style.display = "none";
-}
+    function bukaModal(p) {
+      modalImg.src = p.gambar;
+      modalNama.textContent = p.nama;
+      modalDeskripsi.textContent = p.deskripsi;
+      modalHarga.textContent = "Rp " + p.harga.toLocaleString();
+      detailModal.style.display = "flex";
+    }
 
-function kirimWA(p) {
-  const nomorWA = "6285643838017";
-  const pesan = `Halo Kak, Saya Mau Order Dengan Produk:\n\n${p.nama}\n${p.deskripsi}\nHarga: Rp ${p.harga.toLocaleString('id-ID')}\nStok: ${p.stok > 0 ? p.stok : 'Habis'}`;
-  window.open(`https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`, "_blank");
-}
+    function tutupModal() {
+      detailModal.style.display = "none";
+    }
 
-searchBox.addEventListener("input", () => {
-  const keyword = searchBox.value.toLowerCase();
-  const filter = produkList.filter(p =>
-    p.nama.toLowerCase().includes(keyword) ||
-    p.deskripsi.toLowerCase().includes(keyword) ||
-    p.kategori.toLowerCase().includes(keyword)
-  );
-  renderProduk(filter);
-});
+    function kirimWA(p) {
+      const pesan = `Halo Kak, saya mau pesan ${p.nama} - Rp ${p.harga.toLocaleString()}`;
+      window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(pesan)}`, "_blank");
+    }
 
-renderProduk(produkList);
+    // === TEKS BERJALAN SESUAI WAKTU ===
+    function getGreeting() {
+      const hour = new Date().getHours();
+      if (hour < 12) return "Selamat Pagi 🌤";
+      if (hour < 17) return "Selamat Siang ☀️";
+      if (hour < 19) return "Selamat Sore 🌇";
+      return "Selamat Malam 🌙";
+    }
 
-detailModal.addEventListener("click", (e) => {
-  if (e.target === detailModal) {
-    tutupModal();
-  }
-});
-  // === TEKS BERJALAN OTOMATIS SESUAI WAKTU ===
-function getGreeting() {
-  const now = new Date();
-  const hour = now.getHours();
-  if (hour < 12) return "Selamat Pagi ⛅";
-  if (hour < 15) return "Selamat Siang ☀";
-  if (hour < 18) return "Selamat Sore 🌞";
-  return "Selamat Malam 🌙";
-}
+    document.getElementById("greetingText").textContent = `${getGreeting()} Silahkan Pilih Produk kuota di bawah ya kak ☺`;
 
-const greetingText = document.getElementById("greetingText");
-greetingText.textContent = `${getGreeting()} Silahkan Pilih Produk kuota di bawah ini, Untuk Produk kami selalu update tiap hari Yuk di Maksimalkan Transaksinya Juragan!!! 🥳`;
-</script>
-<footer class="footer">
-  <p>© 2025 <strong>Petarukan Store</strong> • All Rights Reserved</p>
-  <p>Design & Build by <a href="#" target="_blank">Gpc Cell</a></p>
-</footer>
+    renderProduk(produkList);
+  </script>
 
 </body>
 </html>
