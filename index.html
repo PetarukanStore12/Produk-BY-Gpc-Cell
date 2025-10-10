@@ -123,70 +123,61 @@ body {
   background: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   z-index: 10;
 }
 .modal-content {
   background: white;
   border-radius: 15px;
-  padding: 15px 20px;
-  max-width: 360px;
+  padding: 15px;
+  max-width: 340px;
   width: 100%;
   position: relative;
   text-align: left;
   overflow-y: auto;
-  max-height: 90vh;
+  max-height: 80vh;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 .modal-content img {
   display: block;
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   object-fit: cover;
-  border-radius: 10px;
-  margin: 0 auto 10px;
+  border-radius: 8px;
+  margin: 0 auto 8px;
 }
 .modal-content h3 {
   text-align: center;
-  margin: 8px 0;
+  font-size: 16px;
+  margin: 5px 0 10px;
 }
-.modal-content p {
-  font-size: 13px;
-  line-height: 1.5;
+.modal-content p,
+.modal-content ul {
+  font-size: 12.5px;
+  line-height: 1.4;
+  margin: 4px 0;
 }
 .modal-content ul {
-  font-size: 13px;
   padding-left: 18px;
 }
 .close-btn {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 6px;
+  right: 6px;
   background: #ccc;
   border: none;
   border-radius: 50%;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   cursor: pointer;
-}
-.btn-kembali {
-  display: block;
-  width: 100%;
-  text-align: center;
-  background: #1508DA;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 0;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 10px;
+  font-size: 14px;
 }
 .harga {
   font-weight: bold;
   text-align: center;
-  font-size: 16px;
-  color: #222;
-  margin-top: 8px;
+  font-size: 14px;
+  color: #111;
+  margin-top: 10px;
 }
 
 /* TITLE KATEGORI */
@@ -203,9 +194,18 @@ body {
   font-size: 13px;
 }
 
-@media (min-width: 768px) {
-  .produk-grid {
-    grid-template-columns: repeat(3, 1fr);
+/* Responsif */
+@media (max-width: 450px) {
+  .modal-content {
+    max-width: 92%;
+    padding: 12px;
+    max-height: 75vh;
+  }
+  .modal-content h3 {
+    font-size: 15px;
+  }
+  .modal-content p, .modal-content ul {
+    font-size: 12px;
   }
 }
 </style>
@@ -235,7 +235,6 @@ body {
     <h3 id="modalNama"></h3>
     <div id="modalIsi"></div>
     <p class="harga" id="modalHarga"></p>
-    <button class="btn-kembali" onclick="tutupModal()">← Kembali</button>
   </div>
 </div>
 
@@ -283,8 +282,6 @@ const produkList = [
         <li>Area 3 = 45-47 GB</li>
         <li>Area 4 = 55-57 GB</li>
       </ul>
-      <p>Silahkan cek area kalian di sini:<br>
-      <a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
     `
   },
   {
@@ -304,22 +301,6 @@ const produkList = [
     `
   },
   {
-    nama: "Akrab Super L",
-    kategori: "PAKET AKRAB L",
-    harga: 87000,
-    stok: 2,
-    gambar: "Produk4.png",
-    detail: `
-      <p>Paket ini bisa untuk XL & Axis</p>
-      <ul>
-        <li>Area 1 = 88-90 GB</li>
-        <li>Area 2 = 90-92 GB</li>
-        <li>Area 3 = 95-97 GB</li>
-        <li>Area 4 = 105-107 GB</li>
-      </ul>
-    `
-  },
-  {
     nama: "XXL MINI",
     kategori: "PAKET AKRAB XXL",
     harga: 67000,
@@ -332,54 +313,6 @@ const produkList = [
         <li>Area 2 = 32 GB</li>
         <li>Area 3 = 45 GB</li>
         <li>Area 4 = 85 GB</li>
-      </ul>
-    `
-  },
-  {
-    nama: "XXL LITE",
-    kategori: "PAKET AKRAB XXL",
-    harga: 76000,
-    stok: 1,
-    gambar: "Produk6.png",
-    detail: `
-      <p>Paket XXL LITE resmi untuk XL & Axis</p>
-      <ul>
-        <li>Area 1 = 47.5 GB</li>
-        <li>Area 2 = 52 GB</li>
-        <li>Area 3 = 60.5 GB</li>
-        <li>Area 4 = 105 GB</li>
-      </ul>
-    `
-  },
-  {
-    nama: "XXL JUMBO REWARD",
-    kategori: "PAKET AKRAB XXL",
-    harga: 83000,
-    stok: 1,
-    gambar: "Produk7.png",
-    detail: `
-      <p>Paket XXL Jumbo Reward — kuota besar dan masa aktif 30 hari</p>
-      <ul>
-        <li>Area 1 = 65.5–67.5 GB</li>
-        <li>Area 2 = 70–72 GB</li>
-        <li>Area 3 = 83–85 GB</li>
-        <li>Area 4 = 123–125 GB</li>
-      </ul>
-    `
-  },
-  {
-    nama: "XXL JUMBO SUPER",
-    kategori: "PAKET AKRAB XXL",
-    harga: 88000,
-    stok: 1,
-    gambar: "Produk8.png",
-    detail: `
-      <p>Paket XXL Jumbo Super — kuota super besar!</p>
-      <ul>
-        <li>Area 1 = 85.5–87.5 GB</li>
-        <li>Area 2 = 90–92 GB</li>
-        <li>Area 3 = 103–105 GB</li>
-        <li>Area 4 = 143–145 GB</li>
       </ul>
     `
   }
@@ -454,5 +387,6 @@ searchBox.addEventListener("input", () => {
 renderProduk(produkList);
 detailModal.addEventListener("click", (e) => { if (e.target === detailModal) tutupModal(); });
 </script>
+
 </body>
 </html>
