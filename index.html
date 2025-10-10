@@ -60,12 +60,12 @@ body.modal-open {
 /* TEKS BERJALAN */
 .welcome-text {
   text-align: center;
-  background: #ffffff; /* samakan dgn header biar gak terlihat garis */
+  background: #ffffff;
   font-weight: bold;
   font-size: 14px;
   color: #000;
-  padding: 3px 0;
-  margin: 0 auto 3px auto; /* rapat dengan elemen di bawahnya */
+  padding: 6px 0; /* turun sedikit agar center */
+  margin: 0 auto 3px auto;
   border: none;
   width: 100%;
 }
@@ -73,10 +73,10 @@ body.modal-open {
   width: 100%;
   white-space: nowrap;
   display: block;
-  margin: 0;       /* hilangkan celah bawaan */
-  padding: 0;      /* hilangkan padding bawaan */
-  line-height: 1;  /* pastikan teks pas di tengah */
-  border: none;    /* pastikan tidak ada garis bawaan */
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  border: none;
 }
 
 /* GRID PRODUK */
@@ -110,18 +110,9 @@ body.modal-open {
 }
 .stok-habis { background: #e53935; }
 .stok-ready { background: #43a047; }
-.card-content {
-  padding: 8px;
-}
-.card-content h3 {
-  font-size: 14px;
-  margin: 0;
-}
-.card-content p {
-  font-size: 11px;
-  color: #666;
-  margin: 4px 0;
-}
+.card-content { padding: 8px; }
+.card-content h3 { font-size: 14px; margin: 0; }
+.card-content p  { font-size: 11px; color: #666; margin: 4px 0; }
 .card-buttons {
   display: flex;
   justify-content: space-between;
@@ -138,7 +129,7 @@ body.modal-open {
   cursor: pointer;
 }
 .btn-detail { background: #1508DA; color: #F7F7F7; }
-.btn-order { background: #d32f2f; color: white; }
+.btn-order  { background: #d32f2f; color: white; }
 
 /* MODAL DETAIL */
 .modal {
@@ -153,9 +144,7 @@ body.modal-open {
   opacity: 0;
   transition: opacity 0.25s ease;
 }
-.modal.show {
-  opacity: 1;
-}
+.modal.show { opacity: 1; }
 .modal-content {
   background: white;
   border-radius: 15px;
@@ -170,9 +159,7 @@ body.modal-open {
   transform: scale(0.9);
   transition: transform 0.25s ease;
 }
-.modal.show .modal-content {
-  transform: scale(1);
-}
+.modal.show .modal-content { transform: scale(1); }
 .modal-content img {
   display: block;
   width: 110px;
@@ -181,20 +168,10 @@ body.modal-open {
   border-radius: 8px;
   margin: 0 auto 8px;
 }
-.modal-content h3 {
-  text-align: center;
-  font-size: 16px;
-  margin: 5px 0 10px;
-}
+.modal-content h3 { text-align: center; font-size: 16px; margin: 5px 0 10px; }
 .modal-content p,
-.modal-content ul {
-  font-size: 12.5px;
-  line-height: 1.4;
-  margin: 4px 0;
-}
-.modal-content ul {
-  padding-left: 18px;
-}
+.modal-content ul { font-size: 12.5px; line-height: 1.4; margin: 4px 0; }
+.modal-content ul { padding-left: 18px; }
 .close-btn {
   position: absolute;
   top: 6px;
@@ -236,12 +213,8 @@ body.modal-open {
     padding: 12px;
     max-height: 75vh;
   }
-  .modal-content h3 {
-    font-size: 15px;
-  }
-  .modal-content p, .modal-content ul {
-    font-size: 12px;
-  }
+  .modal-content h3 { font-size: 15px; }
+  .modal-content p, .modal-content ul { font-size: 12px; }
 }
 </style>
 </head>
@@ -249,14 +222,13 @@ body.modal-open {
 
 <div class="header">
   <div class="brand">
-    <div class="logo">
-      <img src="Logo.png" alt="Logo">
-    </div>
+    <div class="logo"><img src="Logo.png" alt="Logo"></div>
     <div class="store-info">
       <div class="store-name">PETARUKAN STORE</div>
       <div class="store-sub">Jl. Raya Petarukan Pemalang</div>
     </div>
   </div>
+
   <input type="text" id="searchBox" class="search-box" placeholder="Cari produk...">
 
   <!-- TEKS BERJALAN -->
@@ -467,13 +439,13 @@ const produkList = [
   }
 ];
 
-const produkGrid = document.getElementById("produkGrid");
-const searchBox = document.getElementById("searchBox");
-const detailModal = document.getElementById("detailModal");
-const modalImg = document.getElementById("modalImg");
-const modalNama = document.getElementById("modalNama");
-const modalIsi = document.getElementById("modalIsi");
-const modalHarga = document.getElementById("modalHarga");
+const produkGrid   = document.getElementById("produkGrid");
+const searchBox    = document.getElementById("searchBox");
+const detailModal  = document.getElementById("detailModal");
+const modalImg     = document.getElementById("modalImg");
+const modalNama    = document.getElementById("modalNama");
+const modalIsi     = document.getElementById("modalIsi");
+const modalHarga   = document.getElementById("modalHarga");
 
 function renderProduk(list) {
   produkGrid.innerHTML = "";
@@ -500,7 +472,7 @@ function renderProduk(list) {
         </div>
         <div class="card-buttons">
           <button class="btn btn-detail" ${p.stok === 0 ? 'disabled' : ''}>DETAIL</button>
-          <button class="btn btn-order" ${p.stok === 0 ? 'disabled' : ''}>KLIK ORDER</button>
+          <button class="btn btn-order"  ${p.stok === 0 ? 'disabled' : ''}>KLIK ORDER</button>
         </div>
       `;
       if (p.stok > 0) {
@@ -545,6 +517,7 @@ searchBox.addEventListener("input", () => {
   renderProduk(filter);
 });
 
+// render awal
 renderProduk(produkList);
 </script>
 </body>
