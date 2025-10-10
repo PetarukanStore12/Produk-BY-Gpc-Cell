@@ -285,12 +285,6 @@ const produkList = [
       </ul>
       <p>Silahkan cek area kalian di sini:<br>
       <a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
-      <p><strong>Keterangan:</strong></p>
-      <ul>
-        <li>✓ Paket resmi dan bergaransi</li>
-        <li>✓ Full reguler, bonus kuota aktif</li>
-        <li>✓ Pastikan nomor valid sebelum order</li>
-      </ul>
     `
   },
   {
@@ -307,8 +301,86 @@ const produkList = [
         <li>Area 3 = 70-72 GB</li>
         <li>Area 4 = 80-82 GB</li>
       </ul>
-      <p>Silahkan cek area kalian di sini:<br>
-      <a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
+    `
+  },
+  {
+    nama: "Akrab Super L",
+    kategori: "PAKET AKRAB L",
+    harga: 87000,
+    stok: 2,
+    gambar: "Produk4.png",
+    detail: `
+      <p>Paket ini bisa untuk XL & Axis</p>
+      <ul>
+        <li>Area 1 = 88-90 GB</li>
+        <li>Area 2 = 90-92 GB</li>
+        <li>Area 3 = 95-97 GB</li>
+        <li>Area 4 = 105-107 GB</li>
+      </ul>
+    `
+  },
+  {
+    nama: "XXL MINI",
+    kategori: "PAKET AKRAB XXL",
+    harga: 67000,
+    stok: 1,
+    gambar: "Produk5.png",
+    detail: `
+      <p>Paket XXL MINI untuk XL & Axis</p>
+      <ul>
+        <li>Area 1 = 27 GB</li>
+        <li>Area 2 = 32 GB</li>
+        <li>Area 3 = 45 GB</li>
+        <li>Area 4 = 85 GB</li>
+      </ul>
+    `
+  },
+  {
+    nama: "XXL LITE",
+    kategori: "PAKET AKRAB XXL",
+    harga: 76000,
+    stok: 1,
+    gambar: "Produk6.png",
+    detail: `
+      <p>Paket XXL LITE resmi untuk XL & Axis</p>
+      <ul>
+        <li>Area 1 = 47.5 GB</li>
+        <li>Area 2 = 52 GB</li>
+        <li>Area 3 = 60.5 GB</li>
+        <li>Area 4 = 105 GB</li>
+      </ul>
+    `
+  },
+  {
+    nama: "XXL JUMBO REWARD",
+    kategori: "PAKET AKRAB XXL",
+    harga: 83000,
+    stok: 1,
+    gambar: "Produk7.png",
+    detail: `
+      <p>Paket XXL Jumbo Reward — kuota besar dan masa aktif 30 hari</p>
+      <ul>
+        <li>Area 1 = 65.5–67.5 GB</li>
+        <li>Area 2 = 70–72 GB</li>
+        <li>Area 3 = 83–85 GB</li>
+        <li>Area 4 = 123–125 GB</li>
+      </ul>
+    `
+  },
+  {
+    nama: "XXL JUMBO SUPER",
+    kategori: "PAKET AKRAB XXL",
+    harga: 88000,
+    stok: 1,
+    gambar: "Produk8.png",
+    detail: `
+      <p>Paket XXL Jumbo Super — kuota super besar!</p>
+      <ul>
+        <li>Area 1 = 85.5–87.5 GB</li>
+        <li>Area 2 = 90–92 GB</li>
+        <li>Area 3 = 103–105 GB</li>
+        <li>Area 4 = 143–145 GB</li>
+      </ul>
     `
   }
 ];
@@ -328,7 +400,7 @@ function renderProduk(list) {
   kategoriList.forEach(kat => {
     const title = document.createElement("div");
     title.className = "kategori-title";
-    title.textContent = `PRODUK ${kat.toUpperCase()}`;
+    title.textContent = `PRODUK ${kat}`;
     produkGrid.appendChild(title);
 
     const produkPerKategori = list.filter(p => p.kategori === kat);
@@ -365,17 +437,12 @@ function bukaModal(p) {
   modalHarga.textContent = `Harga: Rp ${p.harga.toLocaleString('id-ID')}`;
   detailModal.style.display = "flex";
 }
-
-function tutupModal() {
-  detailModal.style.display = "none";
-}
-
+function tutupModal() { detailModal.style.display = "none"; }
 function kirimWA(p) {
   const nomorWA = "6285643838017";
   const pesan = `Halo, saya tertarik dengan produk:\n\n${p.nama}\nHarga: Rp ${p.harga.toLocaleString('id-ID')}`;
   window.open(`https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`, "_blank");
 }
-
 searchBox.addEventListener("input", () => {
   const keyword = searchBox.value.toLowerCase();
   const filter = produkList.filter(p =>
@@ -384,11 +451,8 @@ searchBox.addEventListener("input", () => {
   );
   renderProduk(filter);
 });
-
 renderProduk(produkList);
-detailModal.addEventListener("click", (e) => {
-  if (e.target === detailModal) tutupModal();
-});
+detailModal.addEventListener("click", (e) => { if (e.target === detailModal) tutupModal(); });
 </script>
 </body>
 </html>
