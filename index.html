@@ -514,7 +514,7 @@ function tutupModal() {
 
 function kirimWA(p) {
   const nomor = "6285643838017";
-  const pesan = `Halo, saya tertarik dengan produk:\n${p.nama}\nHarga: Rp ${p.harga.toLocaleString('id-ID')}`;
+  const pesan = `Halo Kak, Saya mau Order produk ini - Apakah Ready?\n${p.nama}\nHarga: Rp ${p.harga.toLocaleString('id-ID')}`;
   window.open(`https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`, "_blank");
 }
 
