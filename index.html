@@ -11,6 +11,9 @@ body {
   margin: 0;
   padding: 0;
 }
+body.modal-open {
+  overflow: hidden; /* 🔒 Kunci body agar tidak bisa scroll saat modal terbuka */
+}
 
 /* HEADER */
 .header {
@@ -239,194 +242,54 @@ body {
 </div>
 
 <script>
- const produkList = [
-  {
-    nama: "Akrab L Basic",
-    kategori: "PAKET AKRAB L",
-    harga: 42000,
-    stok: 5,
-    gambar: "Produk1.png",
-    detail: `
-      <p>Paket ini Khusus XL & Axis</p>
-      <p><strong>Detail Paket:</strong></p>
-      <ul>
-        <li>Area 1 = 15 GB</li>
-        <li>Area 2 = 17 GB</li>
-        <li>Area 3 = 22 GB</li>
-        <li>Area 4 = 32 GB</li>
-      </ul>
-      <p>Silahkan cek area kalian di sini:<br>
-      <a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
-      <p><strong>Keterangan:</strong></p>
-      <ul>
-        <li>✓ Paket ini Official Resmi Bergaransi</li>
-        <li>✓ Full Reguler</li>
-        <li>✓ Bonus Kuota My Rewards</li>
-        <li>✓ Reward tidak masuk, tunggu 1x24 jam sebelum komplain.</li>
-        <li>✓ Pastikan nomor sesuai — kesalahan nomor bukan tanggung jawab kami.</li>
-        <li>✓ Jika masih ada paket akrab aktif dari pengelola lain, wajib UNREG dahulu.</li>
-      </ul>
-    `
-  },
-  {
-    nama: "Akrab L Biasa",
-    kategori: "PAKET AKRAB L",
-    harga: 54000,
-    stok: 5,
-    gambar: "Produk2.png",
-    detail: `
-      <p>Paket ini Khusus XL & Axis</p>
-      <ul>
-        <li>Area 1 = 38–40 GB</li>
-        <li>Area 2 = 40–42 GB</li>
-        <li>Area 3 = 45–47 GB</li>
-        <li>Area 4 = 55–57 GB</li>
-      </ul>
-      <p>Silahkan cek area kalian di sini:<br>
-      <a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
-    `
-  },
-  {
-    nama: "Akrab Mega L",
-    kategori: "PAKET AKRAB L",
-    harga: 75000,
-    stok: 3,
-    gambar: "Produk3.png",
-    detail: `
-      <p>Paket XL & Axis, masa aktif 30 hari</p>
-      <ul>
-        <li>Area 1 = 63–65 GB</li>
-        <li>Area 2 = 65–67 GB</li>
-        <li>Area 3 = 70–72 GB</li>
-        <li>Area 4 = 80–82 GB</li>
-      </ul>
-      <p>Silahkan cek area kalian di sini:<br>
-      <a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
-    `
-  },
-  {
-    nama: "Akrab Super L",
-    kategori: "PAKET AKRAB L",
-    harga: 87000,
-    stok: 2,
-    gambar: "Produk4.png",
-    detail: `
-      <p>Paket ini bisa untuk XL & Axis</p>
-      <ul>
-        <li>Area 1 = 88–90 GB</li>
-        <li>Area 2 = 90–92 GB</li>
-        <li>Area 3 = 95–97 GB</li>
-        <li>Area 4 = 105–107 GB</li>
-      </ul>
-      <p>Silahkan cek area kalian di sini:<br>
-      <a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
-    `
-  },
-  {
-    nama: "XXL MINI",
-    kategori: "PAKET AKRAB XXL",
-    harga: 67000,
-    stok: 1,
-    gambar: "Produk5.png",
-    detail: `
-      <p>Paket XXL MINI untuk XL & Axis</p>
-      <ul>
-        <li>Area 1 = 27 GB</li>
-        <li>Area 2 = 32 GB</li>
-        <li>Area 3 = 45 GB</li>
-        <li>Area 4 = 85 GB</li>
-      </ul>
-      <p>Silahkan cek area kalian di sini:<br>
-      <a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
-    `
-  },
-  {
-    nama: "XXL LITE",
-    kategori: "PAKET AKRAB XXL",
-    harga: 76000,
-    stok: 1,
-    gambar: "Produk6.png",
-    detail: `
-      <p>Paket XXL LITE resmi untuk XL & Axis</p>
-      <ul>
-        <li>Area 1 = 47.5 GB</li>
-        <li>Area 2 = 52 GB</li>
-        <li>Area 3 = 60.5 GB</li>
-        <li>Area 4 = 105 GB</li>
-      </ul>
-      <p>Silahkan cek area kalian di sini:<br>
-      <a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
-    `
-  },
-  {
-    nama: "XXL JUMBO REWARD",
-    kategori: "PAKET AKRAB XXL",
-    harga: 83000,
-    stok: 1,
-    gambar: "Produk7.png",
-    detail: `
-      <p>Paket XXL Jumbo Reward — kuota besar dan masa aktif 30 hari</p>
-      <ul>
-        <li>Area 1 = 65.5–67.5 GB</li>
-        <li>Area 2 = 70–72 GB</li>
-        <li>Area 3 = 83–85 GB</li>
-        <li>Area 4 = 123–125 GB</li>
-      </ul>
-      <p>Silahkan cek area kalian di sini:<br>
-      <a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
-    `
-  },
-  {
-    nama: "XXL JUMBO SUPER",
-    kategori: "PAKET AKRAB XXL",
-    harga: 88000,
-    stok: 1,
-    gambar: "Produk8.png",
-    detail: `
-      <p>Paket XXL Jumbo Super — kuota super besar!</p>
-      <ul>
-        <li>Area 1 = 85.5–87.5 GB</li>
-        <li>Area 2 = 90–92 GB</li>
-        <li>Area 3 = 103–105 GB</li>
-        <li>Area 4 = 143–145 GB</li>
-      </ul>
-      <p>Silahkan cek area kalian di sini:<br>
-      <a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
-    `
-  },
-  {
-    nama: "Bekasan L",
-    kategori: "PAKET BEKASAN XL AKRAB",
-    harga: 18000,
-    stok: 0,
-    gambar: "Produk1.png",
-    detail: `
-      <p>Paket Bekasan XL Akrab masa aktif 15–19 hari</p>
-      <ul>
-        <li>19 Hari = Rp 20.000</li>
-        <li>16 Hari = Rp 18.000</li>
-        <li>15 Hari = Rp 17.000</li>
-      </ul>
-      <p>Silahkan hubungi admin untuk ketersediaan stok.</p>
-    `
-  },
-    {
-    nama: "Bekasan L",
-    kategori: "PAKET BEKASAN XL AKRAB",
-    harga: 18000,
-    stok: 0,
-    gambar: "Produk1.png",
-    detail: `
-      <p>Paket Bekasan XL Akrab masa aktif 15–19 hari</p>
-      <ul>
-        <li>19 Hari = Rp 20.000</li>
-        <li>16 Hari = Rp 18.000</li>
-        <li>15 Hari = Rp 17.000</li>
-      </ul>
-      <p>Silahkan hubungi admin untuk ketersediaan stok.</p>
-    `
-  }
+const produkList = [
+  { nama: "Akrab L Basic", kategori: "PAKET AKRAB L", harga: 42000, stok: 5, gambar: "Produk1.png", detail: `
+    <p>Paket ini Khusus XL & Axis</p>
+    <ul><li>Area 1 = 15 GB</li><li>Area 2 = 17 GB</li><li>Area 3 = 22 GB</li><li>Area 4 = 32 GB</li></ul>
+    <p>Silahkan cek area kalian di sini:<br><a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
+  `},
+  { nama: "Akrab L Biasa", kategori: "PAKET AKRAB L", harga: 54000, stok: 5, gambar: "Produk2.png", detail: `
+    <p>Paket ini Khusus XL & Axis</p>
+    <ul><li>Area 1 = 38–40 GB</li><li>Area 2 = 42 GB</li><li>Area 3 = 47 GB</li><li>Area 4 = 57 GB</li></ul>
+    <p>Silahkan cek area kalian di sini:<br><a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
+  `},
+  { nama: "Akrab Mega L", kategori: "PAKET AKRAB L", harga: 75000, stok: 3, gambar: "Produk3.png", detail: `
+    <p>Paket XL & Axis, masa aktif 30 hari</p>
+    <ul><li>Area 1 = 63–65 GB</li><li>Area 2 = 67 GB</li><li>Area 3 = 72 GB</li><li>Area 4 = 82 GB</li></ul>
+    <p>Silahkan cek area kalian di sini:<br><a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
+  `},
+  { nama: "Akrab Super L", kategori: "PAKET AKRAB L", harga: 87000, stok: 2, gambar: "Produk4.png", detail: `
+    <p>Paket ini bisa untuk XL & Axis</p>
+    <ul><li>Area 1 = 88–90 GB</li><li>Area 2 = 92 GB</li><li>Area 3 = 97 GB</li><li>Area 4 = 107 GB</li></ul>
+    <p>Silahkan cek area kalian di sini:<br><a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
+  `},
+  { nama: "XXL MINI", kategori: "PAKET AKRAB XXL", harga: 67000, stok: 1, gambar: "Produk5.png", detail: `
+    <p>Paket XXL MINI untuk XL & Axis</p>
+    <ul><li>Area 1 = 27 GB</li><li>Area 2 = 32 GB</li><li>Area 3 = 45 GB</li><li>Area 4 = 85 GB</li></ul>
+    <p>Silahkan cek area kalian di sini:<br><a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
+  `},
+  { nama: "XXL LITE", kategori: "PAKET AKRAB XXL", harga: 76000, stok: 1, gambar: "Produk6.png", detail: `
+    <p>Paket XXL LITE resmi untuk XL & Axis</p>
+    <ul><li>Area 1 = 47.5 GB</li><li>Area 2 = 52 GB</li><li>Area 3 = 60.5 GB</li><li>Area 4 = 105 GB</li></ul>
+    <p>Silahkan cek area kalian di sini:<br><a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
+  `},
+  { nama: "XXL JUMBO REWARD", kategori: "PAKET AKRAB XXL", harga: 83000, stok: 1, gambar: "Produk7.png", detail: `
+    <p>Paket XXL Jumbo Reward — kuota besar dan masa aktif 30 hari</p>
+    <ul><li>Area 1 = 65.5–67.5 GB</li><li>Area 2 = 70–72 GB</li><li>Area 3 = 83–85 GB</li><li>Area 4 = 123–125 GB</li></ul>
+    <p>Silahkan cek area kalian di sini:<br><a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
+  `},
+  { nama: "XXL JUMBO SUPER", kategori: "PAKET AKRAB XXL", harga: 88000, stok: 1, gambar: "Produk8.png", detail: `
+    <p>Paket XXL Jumbo Super — kuota super besar!</p>
+    <ul><li>Area 1 = 85.5–87.5 GB</li><li>Area 2 = 90–92 GB</li><li>Area 3 = 103–105 GB</li><li>Area 4 = 143–145 GB</li></ul>
+    <p>Silahkan cek area kalian di sini:<br><a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
+  `},
+  { nama: "Bekasan L", kategori: "PAKET BEKASAN XL AKRAB", harga: 18000, stok: 0, gambar: "Produk1.png", detail: `
+    <p>Paket Bekasan XL Akrab masa aktif 15–19 hari</p>
+    <ul><li>19 Hari = Rp 20.000</li><li>16 Hari = Rp 18.000</li><li>15 Hari = Rp 17.000</li></ul>
+    <p>Silahkan hubungi admin untuk ketersediaan stok.</p>
+  `}
 ];
+
 const produkGrid = document.getElementById("produkGrid");
 const searchBox = document.getElementById("searchBox");
 const detailModal = document.getElementById("detailModal");
@@ -476,15 +339,22 @@ function bukaModal(p) {
   modalImg.src = p.gambar;
   modalNama.textContent = p.nama;
   modalIsi.innerHTML = p.detail;
-  modalHarga.textContent = p.harga > 0 ? `Harga: Rp ${p.harga.toLocaleString('id-ID')}` : "Harga bervariasi";
+  modalHarga.textContent = `Harga: Rp ${p.harga.toLocaleString('id-ID')}`;
   detailModal.style.display = "flex";
+  document.body.classList.add("modal-open"); // Kunci scroll
 }
-function tutupModal() { detailModal.style.display = "none"; }
+
+function tutupModal() {
+  detailModal.style.display = "none";
+  document.body.classList.remove("modal-open"); // Buka scroll lagi
+}
+
 function kirimWA(p) {
   const nomorWA = "6285643838017";
-  const pesan = `Halo, saya tertarik dengan produk:\n\n${p.nama}\nHarga: ${p.harga > 0 ? `Rp ${p.harga.toLocaleString('id-ID')}` : 'Bervariasi'}\nKategori: ${p.kategori}`;
+  const pesan = `Halo, saya tertarik dengan produk:\n\n${p.nama}\nHarga: Rp ${p.harga.toLocaleString('id-ID')}`;
   window.open(`https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`, "_blank");
 }
+
 searchBox.addEventListener("input", () => {
   const keyword = searchBox.value.toLowerCase();
   const filter = produkList.filter(p =>
@@ -493,8 +363,8 @@ searchBox.addEventListener("input", () => {
   );
   renderProduk(filter);
 });
+
 renderProduk(produkList);
-detailModal.addEventListener("click", (e) => { if (e.target === detailModal) tutupModal(); });
 </script>
 </body>
 </html>
