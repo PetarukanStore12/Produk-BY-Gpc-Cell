@@ -60,18 +60,23 @@ body.modal-open {
 /* TEKS BERJALAN */
 .welcome-text {
   text-align: center;
-  background: #f9f9f9;
+  background: #ffffff; /* samakan dgn header biar gak terlihat garis */
   font-weight: bold;
   font-size: 14px;
   color: #000;
-  padding: 4px 0;
-  margin: 2px auto 4px auto; /* 🔥 jarak kecil agar rapat dengan tombol */
+  padding: 3px 0;
+  margin: 0 auto 3px auto; /* rapat dengan elemen di bawahnya */
   border: none;
   width: 100%;
 }
 .welcome-text marquee {
   width: 100%;
   white-space: nowrap;
+  display: block;
+  margin: 0;       /* hilangkan celah bawaan */
+  padding: 0;      /* hilangkan padding bawaan */
+  line-height: 1;  /* pastikan teks pas di tengah */
+  border: none;    /* pastikan tidak ada garis bawaan */
 }
 
 /* GRID PRODUK */
@@ -253,7 +258,7 @@ body.modal-open {
     </div>
   </div>
   <input type="text" id="searchBox" class="search-box" placeholder="Cari produk...">
-  
+
   <!-- TEKS BERJALAN -->
   <div class="welcome-text">
     <marquee behavior="scroll" direction="left" scrollamount="5">
