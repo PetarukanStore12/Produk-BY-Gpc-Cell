@@ -12,7 +12,7 @@ body {
   padding: 0;
 }
 body.modal-open {
-  overflow: hidden; /* Kunci body agar tidak bisa scroll saat modal terbuka */
+  overflow: hidden;
 }
 
 /* HEADER */
@@ -65,9 +65,9 @@ body.modal-open {
   font-size: 14px;
   color: #000;
   padding: 4px 0;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 6px;
+  margin: 2px auto 4px auto; /* 🔥 jarak kecil agar rapat dengan tombol */
+  border: none;
+  width: 100%;
 }
 .welcome-text marquee {
   width: 100%;
@@ -220,7 +220,7 @@ body.modal-open {
   font-weight: bold;
   padding: 4px 10px;
   border-radius: 20px;
-  margin: 15px auto 10px;
+  margin: 10px auto 10px auto;
   font-size: 13px;
 }
 
