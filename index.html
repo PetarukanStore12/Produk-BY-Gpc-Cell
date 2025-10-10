@@ -495,4 +495,28 @@ function bukaModal(p) {
 
 function tutupModal() {
   detailModal.classList.remove("show");
-  set
+  setTimeout(() => {
+    detailModal.style.display = "none";
+    document.body.classList.remove("modal-open");
+  }, 200);
+}
+
+function kirimWA(p) {
+  const nomorWA = "6285643838017";
+  const pesan = `Halo, saya tertarik dengan produk:\n\n${p.nama}\nHarga: Rp ${p.harga.toLocaleString('id-ID')}`;
+  window.open(`https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`, "_blank");
+}
+
+searchBox.addEventListener("input", () => {
+  const keyword = searchBox.value.toLowerCase();
+  const filter = produkList.filter(p =>
+    p.nama.toLowerCase().includes(keyword) ||
+    p.kategori.toLowerCase().includes(keyword)
+  );
+  renderProduk(filter);
+});
+
+renderProduk(produkList);
+</script>
+</body>
+</html>
