@@ -114,6 +114,11 @@ body.modal-open {
   font-weight: bold;
   border: none;
   cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 .btn-detail { background: #1508DA; color: #F7F7F7; }
 .btn-order { background: #d32f2f; color: white; }
@@ -129,7 +134,7 @@ body.modal-open {
   padding: 10px;
   z-index: 10;
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.35s ease-in-out;
 }
 .modal.show {
   opacity: 1;
@@ -145,8 +150,8 @@ body.modal-open {
   overflow-y: auto;
   max-height: 80vh;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  transform: scale(0.9);
-  transition: transform 0.25s ease;
+  transform: scale(0.85);
+  transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 .modal.show .modal-content {
   transform: scale(1);
@@ -498,7 +503,7 @@ function tutupModal() {
   setTimeout(() => {
     detailModal.style.display = "none";
     document.body.classList.remove("modal-open");
-  }, 200);
+  }, 350);
 }
 
 function kirimWA(p) {
