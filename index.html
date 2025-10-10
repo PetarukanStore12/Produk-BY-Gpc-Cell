@@ -57,6 +57,23 @@ body.modal-open {
   border: 1px solid #ccc;
 }
 
+/* TEKS BERJALAN */
+.welcome-text {
+  text-align: center;
+  background: #f9f9f9;
+  font-weight: bold;
+  font-size: 14px;
+  color: #000;
+  padding: 4px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 6px;
+}
+.welcome-text marquee {
+  width: 100%;
+  white-space: nowrap;
+}
+
 /* GRID PRODUK */
 .produk-grid {
   display: grid;
@@ -236,6 +253,13 @@ body.modal-open {
     </div>
   </div>
   <input type="text" id="searchBox" class="search-box" placeholder="Cari produk...">
+  
+  <!-- TEKS BERJALAN -->
+  <div class="welcome-text">
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+      Selamat Datang Di Toko
+    </marquee>
+  </div>
 </div>
 
 <div class="produk-grid" id="produkGrid"></div>
