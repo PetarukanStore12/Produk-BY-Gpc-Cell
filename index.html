@@ -11,9 +11,7 @@ body {
   margin: 0;
   padding: 0;
 }
-body.modal-open {
-  overflow: hidden;
-}
+body.modal-open { overflow: hidden; }
 
 /* HEADER */
 .header {
@@ -27,29 +25,11 @@ body.modal-open {
   gap: 10px;
   margin-bottom: 10px;
 }
-.logo {
-  width: 48px;
-  height: 48px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.store-info {
-  display: flex;
-  flex-direction: column;
-}
-.store-name {
-  font-size: 20px;
-  font-weight: bold;
-}
-.store-sub {
-  font-size: 12px;
-  color: #555;
-}
+.logo { width: 48px; height: 48px; border-radius: 5px; overflow: hidden; }
+.logo img { width: 100%; height: 100%; object-fit: cover; }
+.store-info { display: flex; flex-direction: column; }
+.store-name { font-size: 20px; font-weight: bold; }
+.store-sub { font-size: 12px; color: #555; }
 .search-box {
   width: 90%;
   padding: 8px;
@@ -57,164 +37,105 @@ body.modal-open {
   border: 1px solid #ccc;
 }
 
-/* TEKS BERJALAN */
-.welcome-text {
-  text-align: center;
-  background: #ffffff;
-  font-weight: bold;
-  font-size: 14px;
-  color: #000;
-  padding: 6px 0; /* turun sedikit agar center */
-  margin: 0 auto 3px auto;
-  border: none;
-  width: 100%;
+/* TEKS BERJALAN (dibuat benar2 center vertikal) */
+.welcome-text{
+  background:#ffffff;
+  font-weight:bold;
+  font-size:14px;
+  color:#000;
+  height:38px;              /* tinggi tetap */
+  display:flex;             /* center vertikal & horizontal */
+  align-items:center;       
+  justify-content:center;
+  margin:6px auto 8px auto; /* sedikit turun dari input & tetap dekat tombol biru */
+  border:none;
+  width:100%;
 }
-.welcome-text marquee {
-  width: 100%;
-  white-space: nowrap;
-  display: block;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  border: none;
+.welcome-text marquee{
+  width:100%;
+  white-space:nowrap;
+  display:block;
+  margin:0;
+  padding:0;
+  line-height:1;
+  border:none;
 }
 
 /* GRID PRODUK */
-.produk-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  padding: 12px;
+.produk-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  padding:12px;
 }
-.card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  position: relative;
+.card{
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  position:relative;
 }
-.card img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
+.card img{ width:100%; height:140px; object-fit:cover; }
+.stok-label{
+  position:absolute; top:8px; left:8px;
+  padding:4px 8px; border-radius:20px;
+  font-size:11px; font-weight:bold; color:white;
 }
-.stok-label {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  padding: 4px 8px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: bold;
-  color: white;
+.stok-habis{ background:#e53935; }
+.stok-ready{ background:#43a047; }
+.card-content{ padding:8px; }
+.card-content h3{ font-size:14px; margin:0; }
+.card-content p{ font-size:11px; color:#666; margin:4px 0; }
+.card-buttons{
+  display:flex; justify-content:space-between; padding:8px; gap:5px;
 }
-.stok-habis { background: #e53935; }
-.stok-ready { background: #43a047; }
-.card-content { padding: 8px; }
-.card-content h3 { font-size: 14px; margin: 0; }
-.card-content p  { font-size: 11px; color: #666; margin: 4px 0; }
-.card-buttons {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px;
-  gap: 5px;
+.btn{
+  flex:1; padding:6px 0; border-radius:6px; font-size:12px; font-weight:bold;
+  border:none; cursor:pointer;
 }
-.btn {
-  flex: 1;
-  padding: 6px 0;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-}
-.btn-detail { background: #1508DA; color: #F7F7F7; }
-.btn-order  { background: #d32f2f; color: white; }
+.btn-detail{ background:#1508DA; color:#F7F7F7; }
+.btn-order{ background:#d32f2f; color:white; }
 
 /* MODAL DETAIL */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  z-index: 10;
-  opacity: 0;
-  transition: opacity 0.25s ease;
+.modal{
+  display:none; position:fixed; inset:0;
+  background:rgba(0,0,0,0.6);
+  justify-content:center; align-items:center;
+  padding:10px; z-index:10; opacity:0; transition:opacity .25s ease;
 }
-.modal.show { opacity: 1; }
-.modal-content {
-  background: white;
-  border-radius: 15px;
-  padding: 15px;
-  max-width: 340px;
-  width: 100%;
-  position: relative;
-  text-align: left;
-  overflow-y: auto;
-  max-height: 80vh;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  transform: scale(0.9);
-  transition: transform 0.25s ease;
+.modal.show{ opacity:1; }
+.modal-content{
+  background:white; border-radius:15px; padding:15px;
+  max-width:340px; width:100%; position:relative; text-align:left;
+  overflow-y:auto; max-height:80vh; box-shadow:0 2px 8px rgba(0,0,0,.2);
+  transform:scale(.9); transition:transform .25s ease;
 }
-.modal.show .modal-content { transform: scale(1); }
-.modal-content img {
-  display: block;
-  width: 110px;
-  height: 110px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin: 0 auto 8px;
+.modal.show .modal-content{ transform:scale(1); }
+.modal-content img{
+  display:block; width:110px; height:110px; object-fit:cover;
+  border-radius:8px; margin:0 auto 8px;
 }
-.modal-content h3 { text-align: center; font-size: 16px; margin: 5px 0 10px; }
-.modal-content p,
-.modal-content ul { font-size: 12.5px; line-height: 1.4; margin: 4px 0; }
-.modal-content ul { padding-left: 18px; }
-.close-btn {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  background: #ccc;
-  border: none;
-  border-radius: 50%;
-  width: 22px;
-  height: 22px;
-  cursor: pointer;
-  font-size: 14px;
+.modal-content h3{ text-align:center; font-size:16px; margin:5px 0 10px; }
+.modal-content p,.modal-content ul{ font-size:12.5px; line-height:1.4; margin:4px 0; }
+.modal-content ul{ padding-left:18px; }
+.close-btn{
+  position:absolute; top:6px; right:6px; background:#ccc; border:none;
+  border-radius:50%; width:22px; height:22px; cursor:pointer; font-size:14px;
 }
-.harga {
-  font-weight: bold;
-  text-align: center;
-  font-size: 14px;
-  color: #111;
-  margin-top: 10px;
-}
+.harga{ font-weight:bold; text-align:center; font-size:14px; color:#111; margin-top:10px; }
 
 /* TITLE KATEGORI */
-.kategori-title {
-  width: 70%;
-  grid-column: span 2;
-  text-align: center;
-  background: #0035FF;
-  color: #FFFFFF;
-  font-weight: bold;
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin: 10px auto 10px auto;
-  font-size: 13px;
+.kategori-title{
+  width:70%; grid-column:span 2; text-align:center;
+  background:#0035FF; color:#FFFFFF; font-weight:bold;
+  padding:4px 10px; border-radius:20px; margin:10px auto; font-size:13px;
 }
 
 /* Responsif */
-@media (max-width: 450px) {
-  .modal-content {
-    max-width: 92%;
-    padding: 12px;
-    max-height: 75vh;
-  }
-  .modal-content h3 { font-size: 15px; }
-  .modal-content p, .modal-content ul { font-size: 12px; }
+@media (max-width:450px){
+  .modal-content{ max-width:92%; padding:12px; max-height:75vh; }
+  .modal-content h3{ font-size:15px; }
+  .modal-content p,.modal-content ul{ font-size:12px; }
 }
 </style>
 </head>
@@ -233,9 +154,7 @@ body.modal-open {
 
   <!-- TEKS BERJALAN -->
   <div class="welcome-text">
-    <marquee behavior="scroll" direction="left" scrollamount="5">
-      Selamat Datang Di Toko
-    </marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="5">Selamat Datang Di Toko</marquee>
   </div>
 </div>
 
@@ -439,15 +358,15 @@ const produkList = [
   }
 ];
 
-const produkGrid   = document.getElementById("produkGrid");
-const searchBox    = document.getElementById("searchBox");
-const detailModal  = document.getElementById("detailModal");
-const modalImg     = document.getElementById("modalImg");
-const modalNama    = document.getElementById("modalNama");
-const modalIsi     = document.getElementById("modalIsi");
-const modalHarga   = document.getElementById("modalHarga");
+const produkGrid  = document.getElementById("produkGrid");
+const searchBox   = document.getElementById("searchBox");
+const detailModal = document.getElementById("detailModal");
+const modalImg    = document.getElementById("modalImg");
+const modalNama   = document.getElementById("modalNama");
+const modalIsi    = document.getElementById("modalIsi");
+const modalHarga  = document.getElementById("modalHarga");
 
-function renderProduk(list) {
+function renderProduk(list){
   produkGrid.innerHTML = "";
   const kategoriList = [...new Set(list.map(p => p.kategori))];
 
@@ -457,8 +376,7 @@ function renderProduk(list) {
     title.textContent = `PRODUK ${kat}`;
     produkGrid.appendChild(title);
 
-    const produkPerKategori = list.filter(p => p.kategori === kat);
-    produkPerKategori.forEach(p => {
+    list.filter(p => p.kategori === kat).forEach(p => {
       const card = document.createElement("div");
       card.classList.add("card");
       card.innerHTML = `
@@ -477,14 +395,14 @@ function renderProduk(list) {
       `;
       if (p.stok > 0) {
         card.querySelector(".btn-detail").addEventListener("click", () => bukaModal(p));
-        card.querySelector(".btn-order").addEventListener("click", () => kirimWA(p));
+        card.querySelector(".btn-order").addEventListener("click",  () => kirimWA(p));
       }
       produkGrid.appendChild(card);
     });
   });
 }
 
-function bukaModal(p) {
+function bukaModal(p){
   modalImg.src = p.gambar;
   modalNama.textContent = p.nama;
   modalIsi.innerHTML = p.detail;
@@ -494,7 +412,7 @@ function bukaModal(p) {
   setTimeout(() => detailModal.classList.add("show"), 10);
 }
 
-function tutupModal() {
+function tutupModal(){
   detailModal.classList.remove("show");
   setTimeout(() => {
     detailModal.style.display = "none";
@@ -502,22 +420,22 @@ function tutupModal() {
   }, 200);
 }
 
-function kirimWA(p) {
+function kirimWA(p){
   const nomorWA = "6285643838017";
   const pesan = `Halo, saya tertarik dengan produk:\n\n${p.nama}\nHarga: Rp ${p.harga.toLocaleString('id-ID')}`;
-  window.open(`https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`, "_blank");
+  window.open(`https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`,"_blank");
 }
 
 searchBox.addEventListener("input", () => {
   const keyword = searchBox.value.toLowerCase();
-  const filter = produkList.filter(p =>
-    p.nama.toLowerCase().includes(keyword) ||
-    p.kategori.toLowerCase().includes(keyword)
+  renderProduk(
+    produkList.filter(p =>
+      p.nama.toLowerCase().includes(keyword) ||
+      p.kategori.toLowerCase().includes(keyword)
+    )
   );
-  renderProduk(filter);
 });
 
-// render awal
 renderProduk(produkList);
 </script>
 </body>
