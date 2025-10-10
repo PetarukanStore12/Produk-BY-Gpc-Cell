@@ -240,82 +240,14 @@ body {
 
 <script>
 const produkList = [
-  {
-    nama: "Akrab L Basic",
-    kategori: "PAKET AKRAB L",
-    harga: 42000,
-    stok: 5,
-    gambar: "Produk1.png",
-    detail: `
-      <p>Paket ini Khusus XL & Axis</p>
-      <p><strong>Detail Paket:</strong></p>
-      <ul>
-        <li>Area 1 = 15 GB</li>
-        <li>Area 2 = 17 GB</li>
-        <li>Area 3 = 22 GB</li>
-        <li>Area 4 = 32 GB</li>
-      </ul>
-      <p>Silahkan cek area kalian di sini:<br>
-      <a href="https://cekarea.com" target="_blank">https://cekarea.com</a></p>
-      <p><strong>Keterangan:</strong></p>
-      <ul>
-        <li>✓ Paket ini Official Resmi Bergaransi</li>
-        <li>✓ Full Reguler</li>
-        <li>✓ Bonus Kuota My Rewards</li>
-        <li>✓ Reward tidak masuk, tunggu 1x24 jam sebelum komplain.</li>
-        <li>✓ Pastikan nomor sesuai — kesalahan nomor bukan tanggung jawab kami.</li>
-        <li>✓ Jika masih ada paket akrab aktif dari pengelola lain, wajib UNREG dahulu.</li>
-      </ul>
-    `
-  },
-  {
-    nama: "Akrab L Biasa",
-    kategori: "PAKET AKRAB L",
-    harga: 54000,
-    stok: 5,
-    gambar: "Produk2.png",
-    detail: `
-      <p>Paket ini Khusus XL & Axis</p>
-      <ul>
-        <li>Area 1 = 38-40 GB</li>
-        <li>Area 2 = 40-42 GB</li>
-        <li>Area 3 = 45-47 GB</li>
-        <li>Area 4 = 55-57 GB</li>
-      </ul>
-    `
-  },
-  {
-    nama: "Akrab Mega L",
-    kategori: "PAKET AKRAB L",
-    harga: 75000,
-    stok: 3,
-    gambar: "Produk3.png",
-    detail: `
-      <p>Paket XL & Axis, masa aktif 30 hari</p>
-      <ul>
-        <li>Area 1 = 63-65 GB</li>
-        <li>Area 2 = 65-67 GB</li>
-        <li>Area 3 = 70-72 GB</li>
-        <li>Area 4 = 80-82 GB</li>
-      </ul>
-    `
-  },
-  {
-    nama: "XXL MINI",
-    kategori: "PAKET AKRAB XXL",
-    harga: 67000,
-    stok: 1,
-    gambar: "Produk5.png",
-    detail: `
-      <p>Paket XXL MINI untuk XL & Axis</p>
-      <ul>
-        <li>Area 1 = 27 GB</li>
-        <li>Area 2 = 32 GB</li>
-        <li>Area 3 = 45 GB</li>
-        <li>Area 4 = 85 GB</li>
-      </ul>
-    `
-  }
+  { nama: "Akrab L Basic", kategori: "PAKET AKRAB L", harga: 42000, stok: 5, gambar: "Produk1.png", detail: `<p>Paket ini Khusus XL & Axis</p><ul><li>Area 1 = 15 GB</li><li>Area 2 = 17 GB</li><li>Area 3 = 22 GB</li><li>Area 4 = 32 GB</li></ul>` },
+  { nama: "Akrab L Biasa", kategori: "PAKET AKRAB L", harga: 54000, stok: 5, gambar: "Produk2.png", detail: `<p>Paket ini Khusus XL & Axis</p><ul><li>Area 1 = 38-40 GB</li><li>Area 2 = 42 GB</li><li>Area 3 = 47 GB</li><li>Area 4 = 57 GB</li></ul>` },
+  { nama: "Akrab Mega L", kategori: "PAKET AKRAB L", harga: 75000, stok: 5, gambar: "Produk3.png", detail: `<p>Paket XL & Axis masa aktif 30 hari</p><ul><li>Area 1 = 63-65 GB</li><li>Area 2 = 67 GB</li><li>Area 3 = 72 GB</li><li>Area 4 = 82 GB</li></ul>` },
+  { nama: "Akrab Super L", kategori: "PAKET AKRAB L", harga: 87000, stok: 5, gambar: "Produk4.png", detail: `<p>Paket XL & Axis</p><ul><li>Area 1 = 88-90 GB</li><li>Area 2 = 92 GB</li><li>Area 3 = 97 GB</li><li>Area 4 = 107 GB</li></ul>` },
+  { nama: "XXL MINI", kategori: "PAKET AKRAB XXL", harga: 67000, stok: 1, gambar: "Produk5.png", detail: `<p>Paket XXL MINI</p><ul><li>Area 1 = 27 GB</li><li>Area 2 = 32 GB</li><li>Area 3 = 45 GB</li><li>Area 4 = 85 GB</li></ul>` },
+  { nama: "XXL LITE", kategori: "PAKET AKRAB XXL", harga: 76000, stok: 1, gambar: "Produk6.png", detail: `<p>Paket XXL LITE</p><ul><li>Area 1 = 47.5 GB</li><li>Area 2 = 52 GB</li><li>Area 3 = 60.5 GB</li><li>Area 4 = 105 GB</li></ul>` },
+  { nama: "XXL JUMBO REWARD", kategori: "PAKET AKRAB XXL", harga: 83000, stok: 1, gambar: "Produk7.png", detail: `<p>Paket XXL Jumbo Reward</p><ul><li>Area 1 = 65.5–67.5 GB</li><li>Area 2 = 70–72 GB</li><li>Area 3 = 83–85 GB</li><li>Area 4 = 123–125 GB</li></ul>` },
+  { nama: "XXL JUMBO SUPER", kategori: "PAKET AKRAB XXL", harga: 88000, stok: 1, gambar: "Produk8.png", detail: `<p>Paket XXL Jumbo Super</p><ul><li>Area 1 = 85.5–87.5 GB</li><li>Area 2 = 90–92 GB</li><li>Area 3 = 103–105 GB</li><li>Area 4 = 143–145 GB</li></ul>` },
 ];
 
 const produkGrid = document.getElementById("produkGrid");
@@ -387,6 +319,5 @@ searchBox.addEventListener("input", () => {
 renderProduk(produkList);
 detailModal.addEventListener("click", (e) => { if (e.target === detailModal) tutupModal(); });
 </script>
-
 </body>
 </html>
