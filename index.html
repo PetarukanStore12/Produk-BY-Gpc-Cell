@@ -111,7 +111,7 @@ body.modal-open { overflow: hidden; }
 .btn-order { background: #d32f2f; color: white; }
 
 /* Tombol nonaktif (abu-abu kalau stok 0) */
-.btn[disabled] {
+.btn-order[disabled] {
   background: #bdbdbd !important;
   color: #f0f0f0 !important;
   cursor: not-allowed;
@@ -258,21 +258,22 @@ const produkList = [
     detail: `<p>Paket Bekasan XL Akrab masa aktif 15–19 hari</p><ul><li>19 Hari = Rp 20.000</li><li>16 Hari = Rp 18.000</li><li>15 Hari = Rp 17.000</li></ul>` }
 ];
 
-const produkGrid=document.getElementById("produkGrid");
-function renderProduk(list){
-  produkGrid.innerHTML="";
-  const kategoriList=[...new Set(list.map(p=>p.kategori))];
-  kategoriList.forEach(kat=>{
-    const title=document.createElement("div");
-    title.className="kategori-title";
-    title.textContent=`PRODUK ${kat}`;
+const produkGrid = document.getElementById("produkGrid");
+
+function renderProduk(list) {
+  produkGrid.innerHTML = "";
+  const kategoriList = [...new Set(list.map(p => p.kategori))];
+  kategoriList.forEach(kat => {
+    const title = document.createElement("div");
+    title.className = "kategori-title";
+    title.textContent = `PRODUK ${kat}`;
     produkGrid.appendChild(title);
-    list.filter(p=>p.kategori===kat).forEach(p=>{
-      const card=document.createElement("div");
+    list.filter(p => p.kategori === kat).forEach(p => {
+      const card = document.createElement("div");
       card.classList.add("card");
-      card.innerHTML=`
-        <span class="stok-label ${p.stok>0?'stok-ready':'stok-habis'}">
-          ${p.stok>0?'STATUS: READY':'STATUS: HABIS'}
+      card.innerHTML = `
+        <span class="stok-label ${p.stok > 0 ? 'stok-ready' : 'stok-habis'}">
+          ${p.stok > 0 ? 'STATUS: READY' : 'STATUS: HABIS'}
         </span>
         <img src="${p.gambar}" alt="${p.nama}">
         <div class="card-content">
@@ -280,43 +281,45 @@ function renderProduk(list){
           <p>Paket data ${p.nama} untuk XL & Axis</p>
         </div>
         <div class="card-buttons">
-          <button class="btn btn-detail" ${p.stok===0?'disabled':''}>DETAIL</button>
-          <button class="btn btn-order" ${p.stok===0?'disabled':''}>KLIK ORDER</button>
+          <button class="btn btn-detail">DETAIL</button>
+          <button class="btn btn-order" ${p.stok === 0 ? 'disabled' : ''}>KLIK ORDER</button>
         </div>
       `;
-      if(p.stok>0){
-        card.querySelector(".btn-detail").addEventListener("click",()=>bukaModal(p));
-        card.querySelector(".btn-order").addEventListener("click",()=>kirimWA(p));
+      // Tombol detail selalu aktif
+      card.querySelector(".btn-detail").addEventListener("click", () => bukaModal(p));
+      // Tombol order hanya aktif kalau stok > 0
+      if (p.stok > 0) {
+        card.querySelector(".btn-order").addEventListener("click", () => kirimWA(p));
       }
       produkGrid.appendChild(card);
     });
   });
 }
 
-function bukaModal(p){
-  document.getElementById("modalImg").src=p.gambar;
-  document.getElementById("modalNama").textContent=p.nama;
-  document.getElementById("modalIsi").innerHTML=p.detail;
-  document.getElementById("modalHarga").textContent=`Harga: Rp ${p.harga.toLocaleString('id-ID')}`;
-  const modal=document.getElementById("detailModal");
-  modal.style.display="flex";
+function bukaModal(p) {
+  document.getElementById("modalImg").src = p.gambar;
+  document.getElementById("modalNama").textContent = p.nama;
+  document.getElementById("modalIsi").innerHTML = p.detail;
+  document.getElementById("modalHarga").textContent = `Harga: Rp ${p.harga.toLocaleString('id-ID')}`;
+  const modal = document.getElementById("detailModal");
+  modal.style.display = "flex";
   document.body.classList.add("modal-open");
-  setTimeout(()=>modal.classList.add("show"),10);
+  setTimeout(() => modal.classList.add("show"), 10);
 }
 
-function tutupModal(){
-  const modal=document.getElementById("detailModal");
+function tutupModal() {
+  const modal = document.getElementById("detailModal");
   modal.classList.remove("show");
-  setTimeout(()=>{
-    modal.style.display="none";
+  setTimeout(() => {
+    modal.style.display = "none";
     document.body.classList.remove("modal-open");
-  },200);
+  }, 200);
 }
 
-function kirimWA(p){
-  const nomor="6285643838017";
-  const pesan=`Halo, saya tertarik dengan produk:\n${p.nama}\nHarga: Rp ${p.harga.toLocaleString('id-ID')}`;
-  window.open(`https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`,"_blank");
+function kirimWA(p) {
+  const nomor = "6285643838017";
+  const pesan = `Halo, saya tertarik dengan produk:\n${p.nama}\nHarga: Rp ${p.harga.toLocaleString('id-ID')}`;
+  window.open(`https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`, "_blank");
 }
 
 renderProduk(produkList);
